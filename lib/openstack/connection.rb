@@ -62,16 +62,18 @@ class Connection
       #call private constructor and grab instance vars
       connection = new(options)
       case connection.service_type
-        when "compute"
+        when 'compute'
           OpenStack::Compute::Connection.new(connection)
-        when "object-store"
+        when 'object-store'
           OpenStack::Swift::Connection.new(connection)
-        when "volume"
+        when 'volume'
           OpenStack::Volume::Connection.new(connection)
-        when "image"
+        when 'image'
           OpenStack::Image::Connection.new(connection)
-        when "network"
+        when 'network'
           OpenStack::Network::Connection.new(connection)
+        when 'data_processing'
+          OpenStack::Sahara::Connection.new(connection)
        else
           raise Exception::InvalidArgument, "Invalid :service_type parameter: #{@service_type}"
       end

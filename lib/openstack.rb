@@ -50,6 +50,9 @@ module OpenStack
   require 'openstack/network/subnet'
   require 'openstack/network/router'
   require 'openstack/network/port'
+  require 'openstack/sahara/cluster_template'
+  require 'openstack/sahara/node_group_template'
+  require 'openstack/sahara/connection'
   require 'openstack/version'
   # Constants that set limits on server creation
   MAX_PERSONALITY_ITEMS = 5
