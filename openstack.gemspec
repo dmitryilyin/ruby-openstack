@@ -18,38 +18,8 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
-  s.files = [
-    "COPYING",
-    "README.rdoc",
-    "lib/openstack/version.rb",
-    "lib/openstack.rb",
-    "lib/openstack/compute/address.rb",
-    "lib/openstack/compute/connection.rb",
-    "lib/openstack/compute/flavor.rb",
-    "lib/openstack/compute/image.rb",
-    "lib/openstack/compute/metadata.rb",
-    "lib/openstack/compute/personalities.rb",
-    "lib/openstack/compute/server.rb",
-    "lib/openstack/connection.rb",
-    "lib/openstack/image/connection.rb",
-    "lib/openstack/network/connection.rb",
-    "lib/openstack/network/network.rb",
-    "lib/openstack/network/port.rb",
-    "lib/openstack/network/subnet.rb",
-    "lib/openstack/network/router.rb",
-    "lib/openstack/swift/connection.rb",
-    "lib/openstack/swift/container.rb",
-    "lib/openstack/swift/storage_object.rb",
-    "lib/openstack/volume/connection.rb",
-    "lib/openstack/volume/snapshot.rb",
-    "lib/openstack/volume/volume.rb",
-    "test/authentication_test.rb",
-    "test/connection_test.rb",
-    "test/exception_test.rb",
-    "test/metadata_test.rb",
-    "test/servers_test.rb",
-    "test/test_helper.rb"
-  ]
+  s.files = [ "COPYING", "README.rdoc" ] + Dir["lib/*.rb"] + Dir["lib/*/*.rb"] + Dir["lib/*/*/*.rb"] + Dir["test/*.rb"]
+  
   s.homepage = "https://github.com/ruby-openstack/ruby-openstack"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
