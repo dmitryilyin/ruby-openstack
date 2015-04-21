@@ -27,8 +27,9 @@ module OpenStack
       end
 
       def get_node_group_template(node_group_template_id)
-        response = connection.req('GET', node_group_template_url, node_group_template_id)
+        response = connection.req('GET', node_group_template_url(node_group_template_id))
         volume_hash = JSON.parse(response.body)['node_group_template']
+        return unless volume_hash
         OpenStack::Sahara::Node_Group_Template.new volume_hash
       end
 
@@ -37,7 +38,7 @@ module OpenStack
         data = JSON.generate(options)
         response = connection.csreq('POST',
                                      connection.service_host,
-                                     "#{connection.service_path}/#{node_group_template_url}",
+                                     "#{connection.service_path}#{node_group_template_url}",
                                      connection.service_port,
                                      connection.service_scheme,
                                      {
